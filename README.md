@@ -64,6 +64,11 @@ utilisez la commande suivante :
 pip install drf-yasg
 ```
 
+### Créez une base de données
+```bash
+CREATE DATABASE recrutement_db
+```
+
 ### Configuration de la base de données
 - Créez une base de données PostgreSQL pour votre projet.
 - Configurez la connexion à la base de données dans le fichier **settings.py** de Django.
@@ -123,6 +128,45 @@ recrutement/
 └── swagger.py
 ```
 
+## Explication du code
+### Modèles 
+Le fichier models.py définit les modèles de données pour les Candidats et les Recruteurs.
+
+- Modèle Candidat
+Le modèle Candidat contient les informations suivantes sur un candidat :
+
+**nom** : Le nom du candidat (de type CharField avec une longueur maximale de 100 caractères).
+**prenom** : Le prénom du candidat (de type CharField avec une **longueur** maximale de 100 caractères).
+**email** : L'email du candidat (de type EmailField).
+**telephone** : Le numéro de téléphone du candidat (de type CharField avec une longueur maximale de 15 caractères).
+**date_naissance** : La date de naissance du candidat (de type DateField).
+
+- Modèle recruteur
+Le modèle Recruteur contient les informations suivantes sur un recruteur :
+
+**entreprise** : Le nom de l'entreprise du recruteur (de type CharField avec une longueur maximale de 100 caractères).
+**email** : L'email du recruteur (de type EmailField).
+**telephone** : Le numéro de téléphone du recruteur (de type CharField avec une longueur maximale de 15 caractères).
+**site_web** : Le site web de l'entreprise (de type URLField)
+
+### Vues
+Le fichier **views.py** définit les vues pour les endpoints de l'API. Chaque vue correspond à un modèle et permet de gérer les différentes requêtes HTTP.
+
+- Vue candidat 
+La vue **CandidatViewSet** expose les opérations create, retrieve, update, et destroy pour les candidats.
+
+- Vue recruteur
+De manière similaire, la vue **RecruteurViewSet** permet de gérer les opérations CRUD pour les recruteurs.
+
+### Serializers
+Le fichier **serializers.py** définit comment les modèles de données sont convertis en format JSON (et inversement). Chaque modèle a son propre sérializer.
+
+### Swagger
+Le fichier **swagger.py** utilise drf_yasg pour générer une documentation interactive de l'API avec Swagger. Cette documentation permet aux développeurs de tester facilement l'API directement depuis l'interface.
+
+### URLs
+Le fichier **urls.py** définit les routes pour l'API. Chaque vue est enregistrée dans un routeur qui expose les endpoints pour les candidats et les recruteurs.
+
 ## Diagramme UML
 Diagramme des classes recruteur, candidat et offre:
 
@@ -131,8 +175,7 @@ Diagramme des classes recruteur, candidat et offre:
 
 ## Auteurs
 - Kenza HALIL
-- 0602566055
-- halilkenza2005@gmail.com
+
 
 
 
