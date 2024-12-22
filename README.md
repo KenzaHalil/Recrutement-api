@@ -136,17 +136,25 @@ Le fichier models.py définit les modèles de données pour les Candidats et les
 Le modèle Candidat contient les informations suivantes sur un candidat :
 
 **nom** : Le nom du candidat (de type CharField avec une longueur maximale de 100 caractères).
-**prenom** : Le prénom du candidat (de type CharField avec une **longueur** maximale de 100 caractères).
+
+**prenom** : Le prénom du candidat (de type CharField avec une longueur maximale de 100 caractères).
+
+
 **email** : L'email du candidat (de type EmailField).
+
 **telephone** : Le numéro de téléphone du candidat (de type CharField avec une longueur maximale de 15 caractères).
+
 **date_naissance** : La date de naissance du candidat (de type DateField).
 
 - Modèle recruteur
 Le modèle Recruteur contient les informations suivantes sur un recruteur :
 
 **entreprise** : Le nom de l'entreprise du recruteur (de type CharField avec une longueur maximale de 100 caractères).
+
 **email** : L'email du recruteur (de type EmailField).
+
 **telephone** : Le numéro de téléphone du recruteur (de type CharField avec une longueur maximale de 15 caractères).
+
 **site_web** : Le site web de l'entreprise (de type URLField)
 
 ### Vues
